@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>1 Mês de Namoro</title>
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow:hidden;
+
+    background: linear-gradient(135deg,#ff9acb,#ffffff);
+}
+
+/* LETREIRO */
+.letreiro{
+    font-size:28px;
+    font-weight:bold;
+    margin-bottom:25px;
+    color:#ffffff;
+    text-shadow:0 0 10px rgba(0,0,0,0.3);
+    z-index:2;
+}
+
+/* CAIXA DO TEXTO */
+.caixa{
+    width:420px;
+    padding:30px;
+
+    background:rgba(255,255,255,0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border-radius:25px;
+
+    box-shadow:0 8px 30px rgba(0,0,0,0.15);
+
+    text-align:center;
+    color:#333;
+
+    z-index:2;
+}
+
+/* TEXTO */
+.texto{
+    font-size:18px;
+    line-height:1.6;
+}
+
+/* CORAÇÕES */
+.heart{
+    position:absolute;
+    bottom:-50px;
+    color:#ff6fa8;
+    font-size:20px;
+    animation: subir linear infinite;
+}
+
+@keyframes subir{
+    from{
+        transform:translateY(0);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="letreiro">
+05/02 até 07/03 - 1 mês de namoro
+</div>
+
+<div class="caixa">
+<div class="texto">
+
+Aqui vai o seu texto romântico 💖  
+
+Você pode editar essa mensagem depois para escrever
+algo especial para o seu primeiro mês juntos.
+
+</div>
+</div>
+
+<script>
+
+/* GERAR CORAÇÕES ALEATÓRIOS */
+
+function criarCoracao(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+
+    heart.innerHTML = "❤";
+
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (15 + Math.random()*25) + "px";
+    heart.style.animationDuration = (5 + Math.random()*6) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },11000);
+}
+
+setInterval(criarCoracao,300);
+
+</script>
+
+</body>
+</html>
